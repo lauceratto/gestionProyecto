@@ -17,4 +17,16 @@ public class Efectivo extends Empleado{
 	}
 	
 	
+	@Override
+	public Double costo(Tarea t) {
+		Double precioHora = this.sueldoBase / 20 /(this.horasMaxDevDia + this.horasMaxOtrasDia);
+		return (t.duracion()*precioHora)*(t.incremento());
+	}
+	@Override
+	public void agregar(Agendable a) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

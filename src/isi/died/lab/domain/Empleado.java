@@ -1,21 +1,26 @@
 package isi.died.lab.domain;
 
+import java.util.List;
+
+import isi.died.lab.domain.exception.HorasNoDisponiblesException;
+
 public abstract class Empleado {
 	protected String nombre;
-	protected byte seniority;
+	protected Integer seniority;
 	protected Long cuit; 
 	protected Integer horasMaxDevDia;
 	protected Integer horasMaxOtrasDia;
+	protected List<Agendable> tareasAsignadas;
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public byte getSeniority() {
+	public Integer getSeniority() {
 		return seniority;
 	}
-	public void setSeniority(byte seniority) {
+	public void setSeniority(Integer seniority) {
 		this.seniority = seniority;
 	}
 	public Long getCuit() {
@@ -36,6 +41,7 @@ public abstract class Empleado {
 	public void setHorasMaxOtrasDia(Integer horasMaxOtrasDia) {
 		this.horasMaxOtrasDia = horasMaxOtrasDia;
 	}
+	public abstract Double costo(Tarea t);
 	
-	
+	public abstract void agregar(Agendable a) throws HorasNoDisponiblesException;
 }
