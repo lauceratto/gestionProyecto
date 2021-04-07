@@ -22,11 +22,21 @@ public class Desarrollo extends Tarea {
 	}
 
 
+	@Override
+	public Double incremento() {
 
+		return 1 + (this.riesgo/2.0);
+	}
 	@Override
 	public void asignarEmpleado(Empleado e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Boolean esDesarrollo() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

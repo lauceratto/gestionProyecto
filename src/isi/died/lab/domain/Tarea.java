@@ -5,6 +5,8 @@ import java.time.Instant;
 
 import javax.management.RuntimeErrorException;
 
+import isi.died.lab.domain.exception.SeniorityNoAlcanzadaException;
+
 public abstract class Tarea implements Agendable{
 	protected String descripcion;
 	protected Integer nivelRequerido;
@@ -26,8 +28,10 @@ public abstract class Tarea implements Agendable{
 		this.fechaFin = Instant.now();
 	}
 	
+	public abstract Double incremento();
+	
 	@Override
-	public abstract void asignarEmpleado(Empleado e) ;
+	public abstract void asignarEmpleado(Empleado e) throws SeniorityNoAlcanzadaException;
 	
 	@Override
 	public Integer duracion() {
