@@ -1,5 +1,8 @@
 package isi.died.lab.domain;
 
+import isi.died.lab.domain.exception.HorasNoDisponiblesException;
+import isi.died.lab.domain.exception.SeniorityNoAlcanzadaException;
+
 public class Efectivo extends Empleado{
 	private double sueldoBase;
 	private Integer antig;
@@ -23,7 +26,7 @@ public class Efectivo extends Empleado{
 		return (t.duracion()*precioHora)*(t.incremento());
 	}
 	@Override
-	public void agregar(Agendable a) {
+	public void agregar(Agendable a) throws HorasNoDisponiblesException, SeniorityNoAlcanzadaException {
 		// TODO Auto-generated method stub
 		
 	}

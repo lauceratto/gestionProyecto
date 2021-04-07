@@ -1,6 +1,7 @@
 package isi.died.lab.domain;
 
 import isi.died.lab.domain.exception.HorasNoDisponiblesException;
+import isi.died.lab.domain.exception.SeniorityNoAlcanzadaException;
 
 public class Contratado extends Empleado{
 	private double costoHora;
@@ -15,11 +16,12 @@ public class Contratado extends Empleado{
 	}
 
 	@Override
-	public void agregar(Agendable a) throws HorasNoDisponiblesException {
+	public void agregar(Agendable a) throws HorasNoDisponiblesException, SeniorityNoAlcanzadaException {
 		//TODO calcular cuantas horas en este dia ya tengo agendadas
 		if(a.esDesarrollo() && a.duracion() > this.horasMaxDevDia) {
 			throw new HorasNoDisponiblesException();
 		}
+		a.asignarEmpleado(this);
 	}
 	
 }
